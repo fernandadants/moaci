@@ -25,28 +25,18 @@ void setup() {
           <meta charset='utf-8'/>
         </head>
         <body>
-          <h1>
-            MOACI
-          </h1>
-          
-          <p>
-            Este é o MOACI 
-          </p>
-          <div>
-          <h1>Clique no botão abaixo e altere o seu estilo:</h1>
-          <button id="novaCor" onClick="cliqueBtn()">Clique aqui</button>
-          </div>
+        <h1>Bem vindo ao MOACI!</h1>
+        <img src="microondasteste.jpg" width="64x64">
+    
+    
+        <div>
+    
+          <p>Informe o meu seu nome: </p>
+          <label for="nome">Nome(Letras iniciais do seu nome):</label>
+          <input type="text" id="nome" name="nome" required minlength="4" maxlength="8" size="10" />
+          <button id="botao" onclick="">Clique aqui</button>
+        </div>
 
-          <figure>
-            <img src='microondastest.jpg' width='300px'>
-            <figcaption>
-              Arduino versão Uno. Créditos: Wikipedia
-            </figcaption>
-          </figure>
-        
-          <p>
-            Fonte: <a href='https://pt.wikipedia.org/wiki/Arduino' target='_blank'>https://pt.wikipedia.org/wiki/Arduino</a>
-          </p>
         </body>
       <html>
     )===="; 
