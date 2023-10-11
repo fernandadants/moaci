@@ -13,7 +13,7 @@ void setup() {
 
 
 
-  Wifi.mode(WIFI_AP)
+  WiFi.mode(WIFI_AP);
   WiFi.softAP(id, password); // iniciando a rede
 
   
@@ -38,7 +38,7 @@ void setup() {
           </div>
 
           <figure>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arduino-uno-perspective-transparent.png/681px-Arduino-uno-perspective-transparent.png' width='300px'>
+            <img src='microondastest.jpg' width='300px'>
             <figcaption>
               Arduino versão Uno. Créditos: Wikipedia
             </figcaption>
