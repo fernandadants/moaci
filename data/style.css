@@ -1,0 +1,168 @@
+.body .login-box {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 600px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(24, 20, 20, 0.987);
+  box-sizing: border-box;
+  box-shadow: 0 25px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box .dados input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.body{
+  background-color: #dbdbdb;
+   width: 100%;
+  overflow: hidden;
+}
+
+.titulo{
+  color: #d400ff;
+  width: 100%;
+  font-size: 30px;
+  border-bottom: 3px solid #1100ff ;
+  margin-bottom: 10px;
+}
+.login-box .cadastro_ficha{
+  color: #d400ff;
+  font-size: 35px;
+  margin-left: 25%;
+  width: 300px;
+  margin-bottom: 50px;
+}
+.nome{
+  color: #ffffff;
+}
+.tempo{
+  color:#fff
+}
+.login-box .confirmar{
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #725AC1;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #725AC1;
+  border-radius: 10px;
+  margin-left: 35%;
+  margin-top: 10px;
+  box-shadow: inset 0 0 0 0 #725AC1;
+}
+
+
+.confirmar, .nao_confirmar:active {
+  transform: scale(0.9);
+}
+
+.nao_confirmar{
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  margin-left: 20%;
+  margin-top: 10px;
+  box-shadow: inset 0 0 0 0 #725AC1;
+}
+html, body {
+  width: 100%;
+  overflow: hidden;
+}
+section {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto
+}
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+  color: #3B38FF;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.tabela{
+  margin-left: 300px;
+  margin-right: 200px;
+  width: 1000px;
+  height: 1000px;
+  margin-top: 100px
+}
