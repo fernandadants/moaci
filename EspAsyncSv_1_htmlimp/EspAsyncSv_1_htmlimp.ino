@@ -1,4 +1,5 @@
 // Inclusão das bibliotecas
+#include <SPIFFS.h>
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
@@ -11,36 +12,33 @@ const char* password = "moaci1234"; // senha
 
 void setup() {
 
+  Serial.begin(115200);
 
+  if(!SPIFFS.begin(true)){
+      Serial.println("An Error has occurred while mounting SPIFFS");
+      return;
+  }
 
   WiFi.mode(WIFI_AP);
   WiFi.softAP(id, password); // iniciando a rede
 
-  
   // Se cria o url do MOACI
   server.on("/", HTTP_GET, [](AsyncWebServerRequest * request){
-     const char index_html[] PROGMEM = R"====(
-      <html>
-        <head>
-          <meta charset='utf-8'/>
-        </head>
-        <body>
-        <h1>Bem vindo ao MOACI!</h1>
-        <img src="microondasteste.jpg" width="64x64">
-    
-    
-        <div>
-    
-          <p>Informe o meu seu nome: </p>
-          <label for="nome">Nome(Letras iniciais do seu nome):</label>
-          <input type="text" id="nome" name="nome" required minlength="4" maxlength="8" size="10" />
-          <button id="botao" onclick="">Clique aqui</button>
-        </div>
+    request->send(SPIFFS, "/index.html", String(), false, processor); // Envia a resposta para o usuário
+  });
 
-        </body>
-      <html>
-    )===="; 
-    request->send_P(200, "text/html", index_html); // Envia a resposta para o usuário
+ server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/style.css", "text/css");
+  });
+
+  server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(ledPin, HIGH);    
+    request->send(SPIFFS, "/index.html", String(), false, processor);
+  });
+
+  server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request){
+    digitalWrite(ledPin, LOW);    
+    request->send(SPIFFS, "/index.html", String(), false, processor);
   });
 
   server.begin(); // inciar servidor
