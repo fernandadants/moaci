@@ -1,0 +1,97 @@
+/*Tabela*/
+td, th {
+    text-align: center;
+}
+
+.style-tabela table {
+    float: left;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    border-right: 0;
+    font-size: 0.8em;
+}
+
+.style-tabela table tr td {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+}
+
+.style-tabela table td.top {
+    background-color: #00bcc4;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.style-tabela table td.top.center {
+    text-align: center;
+}
+
+.style-tabela table td.total {
+    text-align: left;
+    font-weight: bold;
+}
+
+.style-tabela table td.top-toltip {
+    background-color: #207d97;
+    height: 25px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.style-tabela tbody tr td {
+    padding: 0.3em;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+}
+
+.style-tabela tbody tr {
+    background-color: #fff;
+    color: #666;
+}
+
+.style-tabela tbody tr:hover {
+    background-color: #f4f4f4;
+    color: #00bcc4;
+}
+
+
+.style-tabela tbody tr td .editar {
+    color: #00d549;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline;
+    text-decoration: none;
+}
+
+.style-tabela tbody tr td .deletar {
+    color: #bf303c;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline;
+    text-decoration: none;
+}
+
+.style-tabela tbody tr.mensagemAlerta {
+    background-color: #fdeeef;
+    color: #bf303c;
+}
+
+/*Classe adicionada no jquery*/
+#tabela tr.impar {
+    background: #f4f4f4;
+}
+
+#tabela tr.par {
+    background: #f1fafb;
+}
+
+#tabela tr:nth-child(odd) {
+    background-color: #ccc;
+}
+
+*#tabela tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
