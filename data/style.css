@@ -1,4 +1,111 @@
-/*Tabela*/
+.login-box {
+  position:static;
+  margin-top: 35vh;
+  margin-left: 50vw;
+  margin-bottom: auto;
+  width: 30vw;
+  max-width: 40vw;
+  min-width: 30vw;
+  padding: 25px;
+  transform: translate(-50%, -50%);
+  background: rgba(24, 20, 20, 0.987);
+  box-shadow: 0 15px 15px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box .dados input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.body{
+  background-color: #dbdbdb;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.titulo{
+  color: #d400ff;
+  width: 100vw;
+  font-size: 30px;
+  border-bottom: 3px solid #1100ff ;
+  margin-bottom: 10px;
+}
+.fila{
+  text-align: center;
+  position: static;
+  margin-top: 0px;
+  color: #d400ff;
+  width: 100%;
+  font-size: 60px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #1100ff;
+}
+
+.login-box .cadastro_ficha{
+  color: #d400ff;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.nome_label{
+  color: #ffffff;
+}
+
+.tempo_label{
+  color:#fff
+}
+
+.login-box .confirmar{
+  position: relative;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #725AC1;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #725AC1;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #725AC1;
+}
+
+
+.confirmar:active {
+  transform: scale(0.9);
+}
+
+  @media (max-width: 999px){
+    
+   .login-box{
+  position:static;
+  margin-top: 25vh;
+  margin-left: 48vw;
+  width: 80vw;
+  max-width: 80vw;
+  min-width: 30vw;
+  padding: 25px;
+  transform: translate(-50%, -50%);
+  background: rgba(24, 20, 20, 0.987);
+  box-shadow: 0 15px 15px rgba(0,0,0,.6);
+  border-radius: 10px;
+  }
+  
+}  
 td, th {
     text-align: center;
 }

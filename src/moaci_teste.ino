@@ -25,7 +25,7 @@ String listaPessoas() {
     lista += "<tr>";
     lista += "<td>" + String(i) + "</td>";
     lista += "<td>" + pessoas[i].nome + "</td>";
-    lista += "<td>" + String(pessoas[i].tempo) + "</td>";
+    lista += "<td>0" + String(pessoas[i].tempo) + ":00</td>";
     lista += "/<tr>";
   }
   lista += "</tbody>";
@@ -55,7 +55,7 @@ void setup() {
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     String response = SPIFFS.open("/index.html", "r").readString();
-    response.replace("%pessoas%", listaPessoas());
+    response.replace("<%pessoas%>", listaPessoas());
     request->send(200, "text/html", response);
   });
 
