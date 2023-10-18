@@ -1,13 +1,5 @@
 #include <stdio.h>
-#define TAM 100
-
-// define a struct
-typedef struct {
-
-  char name[TAM][TAM];
-  int min;
-
-} user, *ptruser;
+#include <unistd.h>
 
 // funcao pra retirar o enter de onde quer que ele venha
 void enter(char *blah, int tam) {
@@ -23,39 +15,48 @@ void enter(char *blah, int tam) {
   }
 }
 
+void counter(char name[], int tam, int time) {
 
-int main(void) {
-  
-  int num;
-  
-  ptruser u;
-  user user[TAM];
-  
-  
-  for(size_t i = 0; i < TAM; i++){
-    // por hora acrescente o nome do usuario por escrita, depois será implementado
-    // via html
-    
-    printf("Nome do usuario\n");
-    fgets(&user[i].name[i][TAM], TAM, stdin);
-    enter(&user[i].name[i][TAM], TAM);
-    
-    user[i].min = 5;
-    //user[i].min = user[0].min*60;
-    num = 0;
-    
-    while (num != user[i].min){
-      printf("%d\n", num);
+  // tam o numero de vezes que vai ser rodado o contador\
+  // time o tempo que deseja rodar no contador (minutos)
+  // name o nome do usuario
+
+  int contador = 0;
+
+  for (size_t i = 0; i < tam; i++) {
+
+    time = 5;
+    //time = time*60;
+
+    while (contador != time) {
+      printf("%d\n", contador);
       sleep(1);
-      num++;
+      contador++;
 
-      if (num + 1 == user[i].min){
-        printf("Time's up %s!\n",&user[i].name[i][TAM]); //  maneira de indicar que o tempo do contador do microondas acabou
+      if (contador + 1 == time) {
+        printf("Time's up %s!\n", name);
         break;
+        //  maneira de indicar que o tempo do contador do microondas acabou
       }
     }
-    
   }
-  
+}
+
+// comeco da funcao main
+int main(void) {
+
+  char nome[100] = "giulia";
+
+  int button = 1;
+
+  // quando botao == 1 ele comeca o contador com os dados inseridos
+  while (1) {
+
+    if (button == 1) {
+      printf("pode comecar \n");
+      counter(nome, 2, 5);
+    }
+  }
+
   return 0;
 }
