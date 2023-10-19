@@ -70,17 +70,17 @@ void setup()
 
 void loop()
 {
-  // Definindo tempo de carregamento do esp
+  /* // Definindo tempo de carregamento do esp
   unsigned long tempo_corrido = millis();
 
-  estado_botao = (digitalRead(BUTTOM) == HIGH);
+  estado_botao = digitalRead(BUTTOM);
 
-  if (tempo_corrido - ultimo_tempo >= tempo_limite && estado_botao == false)
+  if (tempo_corrido - ultimo_tempo >= tempo_limite)
   {
     ultimo_tempo = tempo_corrido;
     Pessoa excluida = dequeue();
   }
-  else if (tempo_corrido - ultimo_tempo < tempo_limite && estado_botao == true)
+  else if (tempo_corrido - ultimo_tempo < tempo_limite && estado_botao == HIGH)
   {
     if (numPessoas > 0 && !led_aceso)
     {
@@ -105,5 +105,55 @@ void loop()
       led_aceso = false;            // Definir o estado do LED como desligado
       Serial.println("Chamada: " + chamada.nome);
     }
+  } */
+  // Definindo tempo de carregamento do esp
+  unsigned long tempo_corrido = millis();
+
+  if (numPessoas > 0)
+  {
+    Pessoa pessoa_fila = pessoas[0];
+    while (tempo_corrido - ultimo_tempo <= tempo_limite)
+    {
+      int estado_botao = digitalRead(BUTTOM);
+      if (estado_botao == HIGH)
+      {
+        // Serial.println("Iniciando tempo de " + pessoa_fila.nome);
+        ultimo_tempo = tempo_corrido;
+        break;
+      }
+
+      if (tempo_corrido - ultimo_tempo == tempo_limite && estado_botao == LOW)
+      {
+        Serial.println(pessoa_fila.nome + " excluído(a) por falta de comunicação... ");
+        Pessoa excluida = dequeue();
+        ultimo_tempo = tempo_corrido;
+        break;
+      }
+    }
+  }
+
+  if (numPessoas > 0 && !led_aceso)
+  {
+    Serial.println("Entrei aqui no led");
+    Pessoa proximaPessoa = pessoas[0];
+    if (tempo_corrido - ultimo_tempo <= proximaPessoa.tempo * 60000)
+    {
+      digitalWrite(LED, HIGH); // Ligar o LED
+      led_aceso = true;        // Definir o estado do LED como ligado
+      // Marcar o tempo em que o LED ligou
+      ultimo_tempo = tempo_corrido;
+      // Calcular o tempo para chamar a próxima pessoa
+      proxima_chamada = tempo_corrido + proximaPessoa.tempo * 60000;
+    }
+  }
+
+  // Verificando se é hora de chamar a próxima pessoa
+  if (numPessoas > 0 && tempo_corrido >= proxima_chamada)
+  {
+    Pessoa chamada = dequeue();
+    ultimo_tempo = tempo_corrido; // Marcar o tempo em que o LED ligou
+    digitalWrite(LED, LOW);       // Desligar o LED
+    led_aceso = false;            // Definir o estado do LED como desligado
+    Serial.println("Chamada: " + chamada.nome);
   }
 }

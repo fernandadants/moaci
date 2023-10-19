@@ -6,7 +6,7 @@
 
 #define LED 33
 #define BUZZER 35
-#define BUTTOM 27
+#define BUTTOM 14
 
 const char* apSSID = "MoaciNet"; // Nome do Access Point
 const char* apPassword = "moaci1234"; // Senha do Access Point
@@ -23,13 +23,12 @@ int numPessoas = 0; // Contador de pessoas armazenadas
 int primeiro_i = 0; // Índice do primeiro elemento na fila
 int ultimo_i = 0; // Índice do último elemento na fila
 
+unsigned long tempo_corrido;
 bool led_aceso = false;
 unsigned long ultimo_tempo = 0;
 unsigned long proxima_chamada = 0;
 unsigned long tempo_limite = 1 * 60000;
 unsigned long tempo_botao = 0;
-
-bool estado_botao = false;
 
 //Adiciona a pessoa no fim da lista
 void enqueue(const Pessoa &p) {
