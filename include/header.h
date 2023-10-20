@@ -4,9 +4,9 @@
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 
-#define LED 33
+#define LED 22
 #define BUZZER 35
-#define BUTTOM 27
+#define BUTTOM 15
 
 const char* apSSID = "MoaciNet"; // Nome do Access Point
 const char* apPassword = "moaci1234"; // Senha do Access Point
@@ -23,13 +23,15 @@ int numPessoas = 0; // Contador de pessoas armazenadas
 int primeiro_i = 0; // Índice do primeiro elemento na fila
 int ultimo_i = 0; // Índice do último elemento na fila
 
+unsigned long tempo_corrido;
+bool pessoa_ativa = false;
 bool led_aceso = false;
 unsigned long ultimo_tempo = 0;
-unsigned long proxima_chamada = 0;
-unsigned long tempo_limite = 1 * 60000;
+unsigned long proxima_pessoa = 0;
+unsigned long proximo_botao = 0;
+unsigned long tempo_limite = 30000;
+unsigned long botao_clicado = false;
 unsigned long tempo_botao = 0;
-
-bool estado_botao = false;
 
 //Adiciona a pessoa no fim da lista
 void enqueue(const Pessoa &p) {
@@ -40,6 +42,7 @@ void enqueue(const Pessoa &p) {
   }
 }
 
+//Retorna a pessoa mais antiga da lista
 Pessoa dequeue() {
     if (numPessoas > 0) {
         Pessoa p = pessoas[primeiro_i];
@@ -72,43 +75,4 @@ String listaPessoas() {
   }
   lista += "</tbody>";
   return lista;
-}
-void enter(char *blah, int tam) {
-
-  for (size_t i = 0; i < tam; i++) {
-
-    if (*blah == '\n') {
-
-      *blah = '\0';
-      break;
-    }
-    ++blah;
-  }
-}
-
-void counter(char name[], int tam, int time) {
-
-  // tam o numero de vezes que vai ser rodado o contador\
-  // time o tempo que deseja rodar no contador (minutos)
-  // name o nome do usuario
-
-  int contador = 0;
-
-  for (size_t i = 0; i < tam; i++) {
-
-    time = 5;
-    //time = time*60;
-
-    while (contador != time) {
-      printf("%d\n", contador);
-      sleep(1);
-      contador++;
-
-      if (contador + 1 == time) {
-        printf("Time's up %s!\n", name);
-        break;
-        //  maneira de indicar que o tempo do contador do microondas acabou
-      }
-    }
-  }
 }

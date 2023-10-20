@@ -75,11 +75,11 @@ void loop()
 
   if (pessoa_ativa)
   {
-    Serial.println(proximo_botao - tempo_corrido);
-
     if (tempo_corrido >= proximo_botao)
     {
       Serial.println("Terminou o tempo");
+      String lista_pessoas = listaPessoas();
+      Serial.println(lista_pessoas);
       Pessoa excluida = dequeue();
       pessoa_ativa = false;
       digitalWrite(LED, LOW);
@@ -96,8 +96,6 @@ void loop()
     {
       if (tempo_corrido - ultimo_tempo <= tempo_limite)
       {
-        Serial.println((tempo_corrido - ultimo_tempo) / 1000);
-
         int estado_botao = digitalRead(BUTTOM);
 
         if (estado_botao == HIGH)
@@ -115,6 +113,8 @@ void loop()
       }
       else if (tempo_corrido - ultimo_tempo >= tempo_limite && !botao_clicado)
       {
+        String lista_pessoas = listaPessoas();
+        Serial.println(lista_pessoas);
         Pessoa excluida = dequeue();
         Serial.println(excluida.nome + " excluído(a) por falta de comunicação... ");
         proximo_botao = tempo_corrido;
