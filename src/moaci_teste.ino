@@ -134,7 +134,6 @@ void loop()
 
   if (numPessoas > 0 && !led_aceso)
   {
-    Serial.println("Entrei aqui no led");
     Pessoa proximaPessoa = pessoas[0];
     if (tempo_corrido - ultimo_tempo <= proximaPessoa.tempo * 60000)
     {
@@ -144,6 +143,7 @@ void loop()
       ultimo_tempo = tempo_corrido;
       // Calcular o tempo para chamar a próxima pessoa
       proxima_chamada = tempo_corrido + proximaPessoa.tempo * 60000;
+      Serial.println(tempo_corrido-ultimo_tempo);
     }
   }
 
@@ -151,6 +151,7 @@ void loop()
   if (numPessoas > 0 && tempo_corrido >= proxima_chamada)
   {
     Pessoa chamada = dequeue();
+    Serial.println("Chamando próximo: " + chamada.nome);
     ultimo_tempo = tempo_corrido; // Marcar o tempo em que o LED ligou
     digitalWrite(LED, LOW);       // Desligar o LED
     led_aceso = false;            // Definir o estado do LED como desligado

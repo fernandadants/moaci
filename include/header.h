@@ -4,9 +4,9 @@
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 
-#define LED 33
+#define LED 22
 #define BUZZER 35
-#define BUTTOM 14
+#define BUTTOM 15
 
 const char* apSSID = "MoaciNet"; // Nome do Access Point
 const char* apPassword = "moaci1234"; // Senha do Access Point
