@@ -73,14 +73,19 @@ void loop()
   // Definindo tempo de carregamento do esp
   unsigned long tempo_corrido = millis();
 
-  //Serial.println(pessoa_ativa);
-  if (pessoa_ativa && tempo_corrido >= proximo_botao)
+  if (pessoa_ativa)
   {
-    Serial.println("Terminou o tempo");
-    Pessoa excluida = dequeue();
-    pessoa_ativa = false;
-    digitalWrite(LED, LOW);
-    ultimo_tempo = tempo_corrido;
+    Serial.println(proximo_botao - tempo_corrido);
+
+    if (tempo_corrido >= proximo_botao)
+    {
+      Serial.println("Terminou o tempo");
+      Pessoa excluida = dequeue();
+      pessoa_ativa = false;
+      digitalWrite(LED, LOW);
+      led_aceso = false;
+      ultimo_tempo = tempo_corrido;
+    }
   }
 
   if (numPessoas > 0)
@@ -107,7 +112,6 @@ void loop()
             botao_clicado = false;
           }
         }
-        
       }
       else if (tempo_corrido - ultimo_tempo >= tempo_limite && !botao_clicado)
       {
@@ -118,13 +122,17 @@ void loop()
       }
     }
 
-    if (pessoa_ativa)
+    if (pessoa_ativa && !led_aceso)
     {
       digitalWrite(LED, HIGH);
+      led_aceso = true;
+      botao_clicado = false;
       proximo_botao = tempo_corrido + proximaPessoa.tempo * 30000;
-      //proxima_pessoa = tempo_corrido + proximaPessoa.tempo * 60000;
+      // proxima_pessoa = tempo_corrido + proximaPessoa.tempo * 60000;
     }
-  }else{
+  }
+  else
+  {
     ultimo_tempo = tempo_corrido;
   }
 }

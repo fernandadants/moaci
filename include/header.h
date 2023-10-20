@@ -25,6 +25,7 @@ int ultimo_i = 0; // Índice do último elemento na fila
 
 unsigned long tempo_corrido;
 bool pessoa_ativa = false;
+bool led_aceso = false;
 unsigned long ultimo_tempo = 0;
 unsigned long proxima_pessoa = 0;
 unsigned long proximo_botao = 0;
