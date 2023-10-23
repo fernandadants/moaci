@@ -5,7 +5,7 @@
 #include <SPIFFS.h>
 
 #define LED 22
-#define BUZZER 35
+#define BUZZER 18
 #define BUTTOM 15
 
 const char* apSSID = "MoaciNet"; // Nome do Access Point

@@ -62,6 +62,10 @@ void setup()
 
     // Redireciona de volta para a página principal
     request->redirect("/"); });
+  
+  server.on("/moaci", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "microondasteste.jpg", "image/png");
+  });
 
   server.onNotFound(notFound);
 
@@ -77,9 +81,8 @@ void loop()
   {
     if (tempo_corrido >= proximo_botao)
     {
+      tone(BUZZER, 262, 1000);
       Serial.println("Terminou o tempo");
-      String lista_pessoas = listaPessoas();
-      Serial.println(lista_pessoas);
       Pessoa excluida = dequeue();
       pessoa_ativa = false;
       digitalWrite(LED, LOW);
@@ -96,10 +99,20 @@ void loop()
     {
       if (tempo_corrido - ultimo_tempo <= tempo_limite)
       {
+        if (tempo_corrido - ultimo_tempo <= 1000)
+        {
+          tone(BUZZER, 252);
+        }
+        else
+        {
+          noTone(BUZZER);
+        }
+
         int estado_botao = digitalRead(BUTTOM);
 
         if (estado_botao == HIGH)
         {
+          noTone(BUZZER);
           botao_clicado = true;
           pessoa_ativa = true;
         }
@@ -124,6 +137,7 @@ void loop()
 
     if (pessoa_ativa && !led_aceso)
     {
+      Serial.println("Iniciando tempo de " + proximaPessoa.nome);
       digitalWrite(LED, HIGH);
       led_aceso = true;
       botao_clicado = false;

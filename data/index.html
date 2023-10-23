@@ -9,15 +9,15 @@
 </head>
 
 <body class="body" id="body">
-  <header>
-    <h1 class="titulo">MOACI</h1><br>
+  <header class="titulo">
+    <img class="imagem" src="moaci.png" /><br>
   </header>
   <div class="login-box">
     <h2 class="cadastro_ficha">Cadastre sua ficha</h2>
     <div class="dados">
       <form action="/cadastro" method="post">
         <label class="nome_label">Nome:</label>
-        <input type="text" name="nome" id="user_name" required> <br>
+        <input type="text" name="user_name" id="user_name" required> <br>
         <label class="tempo_label">Quanto tempo você deseja usar:</label>
         <input type="number" id="tempo" name="tempo" value="1" min="1" max="5" required=""> <br>
         <button class="confirmar" type="submit" value="Cadastrar">Cadastrar</button>
@@ -30,7 +30,7 @@
   <div>
     <h2 class="fila">Fila</h2>
     <div class="style-tabela">
-      <table id="tabela" cellpadding="0" cellspacing="0" width="100%">
+      <table id="tabela" border="0" cellpadding="0" cellspacing="0" width="100%">
 
         <thead>
           <tr>
@@ -39,9 +39,10 @@
             <td class="top center"><strong>Tempo</strong></td>
           </tr>
         </thead>
-        <div>
-          <%pessoas%>
-          <!--<tbody>
+
+        %pessoas%
+
+        <!--<tbody>
 
             <tr>
               <td>1</td>
@@ -50,10 +51,11 @@
             </tr>
 
           </tbody>-->
-        </div>
-        
       </table>
     </div><!--tabela-->
+  </div>
+  <div>
+    <h1 class="rodape"> </h1>
   </div>
 </body>
 
