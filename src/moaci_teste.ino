@@ -64,7 +64,7 @@ void setup()
     request->redirect("/"); });
   
   server.on("/moaci", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "microondasteste.jpg", "image/png");
+    request->send(SPIFFS, "/moaci.png", "image/png");
   });
 
   server.onNotFound(notFound);

@@ -10,14 +10,14 @@
 
 <body class="body" id="body">
   <header class="titulo">
-    <img class="imagem" src="moaci.png" /><br>
+    <img class="imagem" src="moaci"/><br>
   </header>
   <div class="login-box">
     <h2 class="cadastro_ficha">Cadastre sua ficha</h2>
     <div class="dados">
       <form action="/cadastro" method="post">
         <label class="nome_label">Nome:</label>
-        <input type="text" name="user_name" id="user_name" required> <br>
+        <input type="text" name="nome" id="nome" required> <br>
         <label class="tempo_label">Quanto tempo você deseja usar:</label>
         <input type="number" id="tempo" name="tempo" value="1" min="1" max="5" required=""> <br>
         <button class="confirmar" type="submit" value="Cadastrar">Cadastrar</button>
@@ -40,7 +40,7 @@
           </tr>
         </thead>
 
-        %pessoas%
+        <%pessoas%>
 
         <!--<tbody>
 
