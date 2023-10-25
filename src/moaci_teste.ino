@@ -10,12 +10,12 @@ void notFound(AsyncWebServerRequest *request)
 void setup()
 {
   // Definindo portas de cada item
-  pinMode(LED, OUTPUT);
+  pinMode(RELAY, OUTPUT);
   pinMode(BUZZER, OUTPUT);
   pinMode(BUTTOM, INPUT_PULLUP);
 
-  // Começando com led apagado
-  digitalWrite(LED, LOW);
+  // Começando com relé sem energia
+  digitalWrite(RELAY, LOW);
 
   // Inicia a comunicação com o serial
   Serial.begin(115200);
@@ -85,7 +85,7 @@ void loop()
       Serial.println("Terminou o tempo");
       Pessoa excluida = dequeue();
       pessoa_ativa = false;
-      digitalWrite(LED, LOW);
+      digitalWrite(RELAY, LOW);
       led_aceso = false;
       ultimo_tempo = tempo_corrido;
     }
@@ -138,11 +138,10 @@ void loop()
     if (pessoa_ativa && !led_aceso)
     {
       Serial.println("Iniciando tempo de " + proximaPessoa.nome);
-      digitalWrite(LED, HIGH);
+      digitalWrite(RELAY, HIGH);
       led_aceso = true;
       botao_clicado = false;
-      proximo_botao = tempo_corrido + proximaPessoa.tempo * 30000;
-      // proxima_pessoa = tempo_corrido + proximaPessoa.tempo * 60000;
+      proximo_botao = tempo_corrido + proximaPessoa.tempo * 60000;
     }
   }
   else

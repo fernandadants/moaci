@@ -4,7 +4,7 @@
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
 
-#define LED 22
+#define RELAY 22
 #define BUZZER 18
 #define BUTTOM 15
 
@@ -23,15 +23,12 @@ int numPessoas = 0; // Contador de pessoas armazenadas
 int primeiro_i = 0; // Índice do primeiro elemento na fila
 int ultimo_i = 0; // Índice do último elemento na fila
 
-unsigned long tempo_corrido;
 bool pessoa_ativa = false;
 bool led_aceso = false;
 unsigned long ultimo_tempo = 0;
-unsigned long proxima_pessoa = 0;
 unsigned long proximo_botao = 0;
 unsigned long tempo_limite = 30000;
 unsigned long botao_clicado = false;
-unsigned long tempo_botao = 0;
 
 //Adiciona a pessoa no fim da lista
 void enqueue(const Pessoa &p) {
