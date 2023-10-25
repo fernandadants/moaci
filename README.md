@@ -16,7 +16,7 @@ Para fundamentar as preferências do sistema, foi aplicado um formulário, no qu
 
 - Os dias de maior utilização do micro-ondas são segunda e quarta-feira. 
 
-- 34,4% dos entrevistados possuem uma satisfação de nível 5 em uma escala de 0 a 10. 
+- 44% dos entrevistados possuem uma satisfação de nível 3 em uma escala de 1 a 5. 
 
 - 37,5% dos entrevistados esperam cerca de 20 minutos para aquecer seu alimento, enquanto 34,4% esperam de 10 a 15 minutos. 
 

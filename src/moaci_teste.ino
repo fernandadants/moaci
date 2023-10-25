@@ -141,7 +141,7 @@ void loop()
       digitalWrite(RELAY, HIGH);
       led_aceso = true;
       botao_clicado = false;
-      proximo_botao = tempo_corrido + proximaPessoa.tempo * 60000;
+      proximo_botao = tempo_corrido + proximaPessoa.tempo * 30000;
     }
   }
   else
