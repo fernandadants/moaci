@@ -67,7 +67,12 @@ Para fundamentar as preferências do sistema, foi aplicado um formulário, no qu
 - Jumpers ≅ R$ 10,00
 
 - Caixa de Armazenamento = R$ 16,90
-- **TOTAL = R$ 117,15**
+
+- Buzzer = R$ 10,00
+
+- Fonte 5V = R$ 13,00
+  
+- **TOTAL = R$ 140,05**
 
 
 
