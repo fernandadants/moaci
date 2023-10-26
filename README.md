@@ -56,7 +56,7 @@ Para fundamentar as preferências do sistema, foi aplicado um formulário, no qu
 
 <img src="./images/diagrama_eletrico.png" alt="Diagrama Elétrico" style="zoom: 25%;" />
 
-## Orçamento:
+## Orçamento
 
 | Descrição                | Valor (R$)    |
 | :----------------------- | ------------- |
