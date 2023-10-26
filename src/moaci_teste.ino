@@ -77,6 +77,7 @@ void loop()
   // Definindo tempo de carregamento do esp
   unsigned long tempo_corrido = millis();
 
+  // Se existir uma pessoa inicialmente ativa e chegar o tempo da próxima pessoa da fila
   if (pessoa_ativa)
   {
     if (tempo_corrido >= proximo_botao)
@@ -86,19 +87,24 @@ void loop()
       Pessoa excluida = dequeue();
       pessoa_ativa = false;
       digitalWrite(RELAY, LOW);
-      led_aceso = false;
+      relay_on = false;
       ultimo_tempo = tempo_corrido;
     }
   }
 
+  //Se o numero de pessoas for maior que 0
   if (numPessoas > 0)
   {
+    //Cria um objeto do tipo pessoa que está no primeiro indice.
     Pessoa proximaPessoa = pessoas[primeiro_i];
 
+    //Se chegar o tempo de ler o proximo botao
     if (tempo_corrido >= proximo_botao)
     {
+      //Se o tempo estiver dentro do tempo limite
       if (tempo_corrido - ultimo_tempo <= tempo_limite)
       {
+        //Tocar o buzzer por 1s
         if (tempo_corrido - ultimo_tempo <= 1000)
         {
           tone(BUZZER, 252);
@@ -108,6 +114,7 @@ void loop()
           noTone(BUZZER);
         }
 
+        //Ler o estado do botão
         int estado_botao = digitalRead(BUTTOM);
 
         if (estado_botao == HIGH)
@@ -123,11 +130,11 @@ void loop()
             botao_clicado = false;
           }
         }
-      }
+      } 
       else if (tempo_corrido - ultimo_tempo >= tempo_limite && !botao_clicado)
       {
+        //Se passar o tempo limite e o botão não for acionado
         String lista_pessoas = listaPessoas();
-        Serial.println(lista_pessoas);
         Pessoa excluida = dequeue();
         Serial.println(excluida.nome + " excluído(a) por falta de comunicação... ");
         proximo_botao = tempo_corrido;
@@ -135,17 +142,19 @@ void loop()
       }
     }
 
-    if (pessoa_ativa && !led_aceso)
+    if (pessoa_ativa && !relay_on)
     {
+      //Se a pessoa estiver ativa, mas o relé ainda não estiver acionado
       Serial.println("Iniciando tempo de " + proximaPessoa.nome);
       digitalWrite(RELAY, HIGH);
-      led_aceso = true;
+      relay_on = true;
       botao_clicado = false;
       proximo_botao = tempo_corrido + proximaPessoa.tempo * 30000;
     }
   }
   else
   {
+    //Atualizando estágios de tempo
     ultimo_tempo = tempo_corrido;
   }
 }

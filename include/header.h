@@ -24,7 +24,7 @@ int primeiro_i = 0; // Índice do primeiro elemento na fila
 int ultimo_i = 0; // Índice do último elemento na fila
 
 bool pessoa_ativa = false;
-bool led_aceso = false;
+bool relay_on = false;
 unsigned long ultimo_tempo = 0;
 unsigned long proximo_botao = 0;
 unsigned long tempo_limite = 30000;
