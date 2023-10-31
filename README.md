@@ -34,7 +34,7 @@ Para fundamentar as preferências do sistema, foi aplicado um formulário, no qu
 
 **2. Hospedagem do Site**
 
-​	Um site responsivo foi desenvolvido para o projeto, utilizando HTML e CSS, e hospedado diretamente no ESP32. Isso permitiu que os alunos acessassem o site através da rede Wi-Fi fornecida pelo ESP32. Nesse site, possui um formulário de registro, onde os estudantes inserem seus nomes e escolhem a duração desejada para aquecer sua refeição (de 1 a 5 minutos). Essas informações são enviadas para o ESP32 e armazenadas em um banco de dados local. 
+​	Um site responsivo foi desenvolvido para o projeto, utilizando HTML e CSS, e hospedado diretamente no ESP32. Isso permite que os alunos acessem o site através da rede Wi-Fi fornecida pelo ESP32. Nesse site, possui um formulário de registro, onde os estudantes inserem seus nomes e escolhem a duração desejada para aquecer sua refeição (de 1 a 5 minutos). Essas informações são enviadas para o ESP32 e armazenadas em um banco de dados local. 
 
 ![Cadastro de fichas](./images/main-cadastro-fichas.png)
 
